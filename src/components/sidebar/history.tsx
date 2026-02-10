@@ -65,7 +65,7 @@ function HistoryItem({ item, onClick }: HistoryItemProps) {
       <div className="flex flex-row items-center justify-between space-x-2">
         <span
           className={cn(
-            "px-1.5 py-0.5 rounded-sm text-dark text-[10px] font-semibold uppercase tracking-wider",
+            "px-1.5 py-0.5 rounded-sm text-dark text-[12px] font-semibold uppercase tracking-wider",
             item.type === "url" ? "bg-teal" : "bg-sand",
           )}
         >
@@ -82,11 +82,11 @@ function HistoryItem({ item, onClick }: HistoryItemProps) {
           EAT
         </span>
       </div>
-      <p className="text-sm truncate">INPUT: {item.input}</p>
+      <p className="text-base truncate">INPUT: {item.input}</p>
       <div className="flex flex-row items-center gap-1">
-        <p className="flex-1 text-sm truncate">
+        <p className="flex-1 text-base truncate">
           OUTPUT:{" "}
-          <span className="font-mono font-semibold text-base">
+          <span className="text-sm font-mono font-bold">
             {item.output}
           </span>
         </p>

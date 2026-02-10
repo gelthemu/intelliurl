@@ -1,6 +1,6 @@
 # intelliURL
 
-A fast, privacy-first URL shortener and SEO slug generator — built entirely in the browser.
+A fast, privacy-first URL shortener and SEO slug generator — built entirely in the browser....
 
 ## What It Does
 

@@ -50,9 +50,8 @@ export default function Hero() {
         const existing = await db.tasks.where("input").equals(trimmed).first();
 
         if (existing) {
-          toast("Already generated...", { icon: "📋" });
+          toast("Already generated...", { icon: "🔁" });
           handleReset();
-          inputRef.current?.focus();
 
           setTimeout(() => {
             setResult({
@@ -60,17 +59,13 @@ export default function Hero() {
               output: existing.output,
               type: existing.type,
             });
-          }, 100);
+          }, 200);
 
           return;
         }
 
-        handleReset();
-        inputRef.current?.focus();
-
-        setTimeout(() => {
-          setInput(value);
-        }, 200);
+        setLoading(false);
+        setInput(value);
       }
     };
     window.addEventListener("intelliurl:fill", handler);
@@ -224,11 +219,7 @@ export default function Hero() {
     setError("");
     setCopied(false);
     setLoading(false);
-    setIsDuplicate(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 250);
   };
 
   const isUrlInput = isValidURL(input.trim());

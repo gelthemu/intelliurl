@@ -64,7 +64,7 @@ export default function WhatIs() {
                   <td className="w-16 px-1.5 font-medium align-top whitespace-nowrap">
                     After:
                   </td>
-                  <td className="px-1.5 align-top break-all font-mono text-teal font-semibold">
+                  <td className="px-1.5 align-top break-all font-mono text-dark font-bold">
                     {task.output}
                   </td>
                 </tr>
