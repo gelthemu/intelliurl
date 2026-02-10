@@ -47,7 +47,6 @@ export default function HeroResult({
 
         <div className="flex items-center gap-2 text-sm">
           <motion.button
-            whileTap={{ scale: 0.95 }}
             onClick={onCopy}
             className={cn(
               "px-4 py-2 rounded-sm font-medium flex-1 flex items-center justify-center gap-2",
