@@ -50,6 +50,7 @@ export default function Hero() {
 
         if (existing) {
           toast("Already generated...", { icon: "🔁" });
+          setLoading(false);
           handleReset();
 
           setTimeout(() => {
@@ -58,7 +59,7 @@ export default function Hero() {
               output: existing.output,
               type: existing.type,
             });
-          }, 100);
+          }, 200);
 
           return;
         }
@@ -199,7 +200,6 @@ export default function Hero() {
     setInput("");
     setError("");
     setCopied(false);
-    setLoading(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
