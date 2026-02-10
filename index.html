@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>intelliURL – Smart URL Shortening & Slug Generator</title>
+    <meta
+      name="description"
+      content="Smart URL shortening and SEO slug generation tool"
+    />
+
+    <link rel="preconnect" href="https://api.cfmpulse.com" />
+    <link rel="dns-prefetch" href="https://api.cfmpulse.com" />
+    <link rel="preconnect" href="https://assets.cfmpulse.com" />
+    <link rel="dns-prefetch" href="https://assets.cfmpulse.com" />
+    <link rel="preconnect" href="https://www.youtube.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://intelliurl.vercel.app/io/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://intelliurl.vercel.app/io/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://intelliurl.vercel.app/io/apple-touch-icon.png"
+    />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="intelliURL" />
+    <meta
+      property="og:description"
+      content="Smart URL shortening and SEO slug generation tool"
+    />
+    <meta property="og:url" content="https://intelliurl.vercel.app/" />
+    <meta property="og:site_name" content="intelliURL" />
+    <meta property="fb:app_id" content="" />
+    <meta
+      property="og:image"
+      content="https://intelliurl.vercel.app/opengraph.webp"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://intelliurl.vercel.app/opengraph.webp"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:description"
+      content="Smart URL shortening and SEO slug generation tool"
+    />
+    <meta name="twitter:title" content="intelliURL" />
+    <meta name="twitter:site" content="@geltaverse" />
+    <meta
+      name="twitter:image"
+      content="https://intelliurl.vercel.app/opengraph.webp"
+    />
+
+    <meta name="author" content="Gelthem M." />
+    <meta name="publisher" content="Gelthem M." />
+    <meta name="copyright" content="" />
+    <script>
+      const year = new Date().getFullYear();
+      document
+        .querySelector('meta[name="copyright"]')
+        .setAttribute("content", `© ${year} Gelthem M.`);
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "intelliURL",
+        "description": "Smart URL shortening and SEO slug generation tool",
+        "url": "https://intelliurl.vercel.app/",
+        "image": "https://intelliurl.vercel.app/opengraph.webp",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All"
+        "author": {
+          "@type": "Person",
+          "name": "Gelthem M."
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Gelthem M."
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "ratingCount": "1"
+        },
+        "featureList": [
+          "Generate SEO-friendly slugs from Webpage Titles",
+          "Shorten URLs with TinyURL integration",
+          "Instant results with real-time processing"
+        ]
+      }
+    </script>
+
+    <link
+      rel="manifest"
+      href="https://intelliurl.vercel.app/io/site.webmanifest"
+    />
+    <link rel="canonical" href="https://intelliurl.vercel.app/" />
+  </head>
+  <body
+    class="relative antialiased bg-dark/5 text-dark min-h-dvh flex flex-col"
+  >
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

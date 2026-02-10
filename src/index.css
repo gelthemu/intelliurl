@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  html {
+    font-family: "Work Sans", sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    transition-duration: 1s;
+    box-sizing: border-box;
+    transition-duration: 0s;
+  }
+
+  html,
+  body {
+    @apply text-base;
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    -webkit-font-smoothing: antialiased;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h1 span {
+    @apply text-2xl md:text-4xl font-bold leading-[1.1] tracking-tight;
+  }
+
+  h2 {
+    @apply text-xl md:text-2xl font-semibold leading-[1.1] tracking-tight;
+  }
+
+  h3 {
+    @apply text-lg font-medium leading-[1.25] tracking-tight;
+  }
+
+  .intelliurl-btn {
+    @apply focus:outline-none focus:ring-0 focus:ring-offset-0 focus:ring-offset-transparent focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:ring-offset-transparent disabled:cursor-default disabled:pointer-events-none disabled:opacity-60 [&_svg]:pointer-events-none;
+  }
+
+  .intelliurl-none {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
+@font-face {
+  font-family: "BrighterSansBold";
+  src: url("/fonts/brighter-sans-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("https://assets.cfmpulse.com/geltaverse/fonts/WorkSans-VariableFont_wght.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("https://assets.cfmpulse.com/geltaverse/fonts/WorkSans-Italic-VariableFont_wght.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+.text-shadow {
+  text-shadow: 0 0 1px #060606;
+}
+
+body,
+.hero,
+.music-backdrop,
+.history-backdrop {
+  background-image: url(/texture.png);
+  background-repeat: repeat;
+  background-position: top left;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5b5b5bb8;
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5b5b5bb8;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+button {
+  cursor: pointer !important;
+}
+
+button:disabled {
+  opacity: 0.8 !important;
+  cursor: default !important;
+}
+
+.disabled {
+  opacity: 0.75 !important;
+  cursor: default !important;
+}
+
+a {
+  color: inherit;
+}
+
+span {
+  color: inherit;
+  font-size: inherit;
+}
