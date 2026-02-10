@@ -15,6 +15,7 @@ interface HeroInputProps {
   isUrlInput: boolean;
   maxInput: number;
   onGenerate: () => void;
+  isDuplicate: boolean;
 }
 
 export default function HeroInput({
@@ -29,6 +30,7 @@ export default function HeroInput({
   isUrlInput,
   maxInput,
   onGenerate,
+  isDuplicate,
 }: HeroInputProps) {
   return (
     <motion.div
@@ -99,7 +101,7 @@ export default function HeroInput({
           </div>
         </div>
       </div>
-      {isUrlInput && input.trim().length > 10 && (
+      {isUrlInput && input.trim().length > 10 && !isDuplicate && (
         <PreviewCard url={input.trim()} onLoadingChange={setIsPreviewLoading} />
       )}
     </motion.div>

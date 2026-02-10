@@ -27,6 +27,7 @@ export default function Hero() {
   const [error, setError] = useState("");
   const [result, setResult] = useState<ResultType | null>(null);
   const [copied, setCopied] = useState(false);
+  const [isDuplicate, setIsDuplicate] = useState(false);
 
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -49,7 +50,7 @@ export default function Hero() {
         const existing = await db.tasks.where("input").equals(trimmed).first();
 
         if (existing) {
-          toast("Already generated...", { icon: "🔁" });
+          toast("Already generated...", { icon: "📋" });
           handleReset();
           inputRef.current?.focus();
 
@@ -87,10 +88,31 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  // Check for duplicates whenever input changes
+  useEffect(() => {
+    const checkIfDuplicate = async () => {
+      const trimmed = input.trim();
+      if (!trimmed) {
+        setIsDuplicate(false);
+        return;
+      }
+
+      const existing = await db.tasks.where("input").equals(trimmed).first();
+      setIsDuplicate(!!existing);
+    };
+
+    // Debounce the duplicate check
+    const debounceTimer = setTimeout(() => {
+      checkIfDuplicate();
+    }, 300);
+
+    return () => clearTimeout(debounceTimer);
+  }, [input]);
+
   const checkDuplicate = useCallback(async () => {
     const existing = await db.tasks.where("input").equals(input.trim()).first();
     return existing || null;
-  }, []);
+  }, [input]);
 
   const detectAndGenerate = useCallback(async () => {
     const trimmed = input.trim();
@@ -111,7 +133,7 @@ export default function Hero() {
 
     const dup = await checkDuplicate();
     if (dup) {
-      toast("Already generated...", { icon: "🔁" });
+      toast("Already generated...", { icon: "📋" });
 
       setLoading(true);
       await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -202,6 +224,7 @@ export default function Hero() {
     setError("");
     setCopied(false);
     setLoading(false);
+    setIsDuplicate(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
     setTimeout(() => {
       inputRef.current?.focus();
@@ -230,6 +253,7 @@ export default function Hero() {
             isUrlInput={isUrlInput}
             maxInput={MAX_INPUT}
             onGenerate={detectAndGenerate}
+            isDuplicate={isDuplicate}
           />
         ) : (
           <HeroResult
