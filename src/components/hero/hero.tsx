@@ -64,7 +64,6 @@ export default function Hero() {
         }
 
         handleReset();
-        inputRef.current?.focus();
 
         setTimeout(() => {
           setInput(value);
