@@ -52,7 +52,16 @@ export default function PreviewCard({
     };
   }, [url, onLoadingChange]);
 
-if (isLoadingPreview || !preview) return null;
+  if (isLoadingPreview) {
+    return (
+      <div className="flex items-center gap-2 text-sm text-light/70 py-1">
+        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+        Fetching preview…
+      </div>
+    );
+  }
+
+  if (!preview) return null;
 
   return (
     <div className="rounded-sm border border-teal/20 bg-sand/20 p-2 md:p-4 animate-fade-in">

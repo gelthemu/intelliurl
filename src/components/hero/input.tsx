@@ -77,8 +77,7 @@ export default function HeroInput({
             className="absolute bottom-4 right-3 p-1.5 rounded-sm bg-dark text-light hover:opacity-90 transition-all"
             aria-label="Start"
           >
-            {loading ||
-              (isUrlInput && isPreviewLoading) ? (
+            {loading ? (
               <Loader2 className="w-4 h-4 stroke-[3px] animate-spin" />
             ) : (
               <ArrowUp className="w-4 h-4 stroke-[3px]" />
