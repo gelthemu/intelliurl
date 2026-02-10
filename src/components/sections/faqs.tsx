@@ -15,24 +15,25 @@ export default function FAQS() {
       <div className="space-y-2">
         {[
           {
+            q: "Is there a limit to how many I can create?",
+            a: "There's no hard limit. Your browser's storage can store thousands of entries (50MB+). URL shortening depends on TinyURL's free API availability.",
+          },
+          {
             q: "Can I customize my short URLs?",
-            a: "Short URLs are generated via TinyURL's API with automatic aliases. Custom aliases are not currently supported, but you can edit slugs before saving them.",
+            a: "Short URLs are generated via TinyURL's API with automatic aliases. Custom aliases are not currently supported.",
           },
           {
             q: "How long do shortened URLs last?",
-            a: "TinyURL links are permanent and don't expire. Your local history is stored in IndexedDB and persists until you clear it.",
+            a: "TinyURL links are permanent and don't expire. Your local history is stored in your browser and persists until you clear it.",
           },
-          {
-            q: "Is there a limit to how many I can create?",
-            a: "There's no hard limit. Your browser's IndexedDB can store thousands of entries (50MB+). URL shortening depends on TinyURL's free API availability.",
-          },
+
           {
             q: "Can I use this for commercial purposes?",
             a: "Yes! intelliURL is free for personal and commercial use. URL shortening uses TinyURL's public API, which has its own terms of service.",
           },
           {
             q: "What browsers are supported?",
-            a: "intelliURL works on all modern browsers: Chrome, Firefox, Safari, Edge, and Brave. IndexedDB is supported in all of them.",
+            a: "intelliURL works on all modern browsers: Chrome, Firefox, Safari, Edge, and Brave. Browser Storage is supported in all of them.",
           },
         ].map((faq, i) => (
           <motion.div

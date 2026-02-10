@@ -80,12 +80,12 @@ export default function PreviewCard({
         )}
         <div className="min-w-0 h-full flex-1 flex flex-col space-y-1">
           {preview.title && (
-            <p className="text-sm font-medium text-light leading-none line-clamp-2 text-ellipsis">
+            <p className="text-base font-medium text-light leading-none line-clamp-2 text-ellipsis">
               {preview.title}
             </p>
           )}
           {preview.excerpt && (
-            <p className="text-xs text-light/50 line-clamp-2 mt-auto">
+            <p className="text-sm text-light/50 line-clamp-2 mt-auto">
               {preview.excerpt}
             </p>
           )}
