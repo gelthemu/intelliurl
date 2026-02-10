@@ -57,17 +57,13 @@ export default function HeroResult({
             )}
             title={copied ? "Copied" : "Copy"}
           >
-            {copied ? (
-              <Check className="w-4 h-4 stroke-[3px]" />
-            ) : (
+            {!copied && (
               <Copy className="w-4 h-4 stroke-[3px]" />
             )}
             {copied ? "Copied!" : "Copy"}
           </motion.button>
 
           <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
             onClick={onReset}
             className={cn(
               "px-4 py-2 rounded-sm font-medium shrink-0 flex items-center justify-center gap-2",
@@ -80,8 +76,6 @@ export default function HeroResult({
           </motion.button>
 
           <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
             onClick={handleShareTwitter}
             className={cn(
               "px-4 py-2 rounded-sm font-medium shrink-0 flex items-center justify-center gap-2",
