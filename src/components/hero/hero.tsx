@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from "react";
-import slugify from "slugify";
+import slug from "slug";
 import { isValidURL, isValidHeadline } from "@/lib/utils";
 import { shortenURL } from "@/lib/api";
 import { generateId } from "@/lib/exports";
@@ -128,20 +128,24 @@ export default function Hero() {
       setLoading(true);
 
       try {
-        const slug = slugify(trimmed, {
+        const output = slug(trimmed, {
+          replacement: "-",
+          remove: /[*+~.()'"!:@]/g,
           lower: true,
-          strict: true,
-          remove: /[*+~.()\|'"!:@]/g,
+          charmap: slug.charmap,
+          multicharmap: slug.multicharmap,
+          trim: true,
+          fallback: true,
         });
 
         await new Promise((resolve) => setTimeout(resolve, 2500));
 
-        setResult({ original: trimmed, output: slug, type: "slug" });
+        setResult({ original: trimmed, output: output, type: "slug" });
 
         await db.tasks.add({
           task: generateId(16),
           input: trimmed,
-          output: slug,
+          output: output,
           type: "slug",
           timestamp: Date.now(),
         });
