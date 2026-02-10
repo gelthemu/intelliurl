@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLiveQuery } from "dexie-react-hooks";
-import { exportAsCSV, exportAsJSON } from "@/lib/exports";
+import { exportAsTXT, exportAsJSON } from "@/lib/exports";
 import toast from "react-hot-toast";
 import { db } from "@/lib/db";
 import SidebarHeader from "./header";
@@ -33,10 +33,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
     setShowExport(false);
   };
 
-  const handleExportCSV = () => {
+  const handleExportTXT = () => {
     if (!items || items.length === 0) return;
-    exportAsCSV(items);
-    toast.success("Exported as CSV");
+    exportAsTXT(items);
+    toast.success("Exported as TXT");
     setShowExport(false);
   };
 
@@ -70,7 +70,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
               <ExportMenu
                 show={showExport}
                 onExportJSON={handleExportJSON}
-                onExportCSV={handleExportCSV}
+                onExportTXT={handleExportTXT}
                 onClose={() => setShowExport(false)}
               />
             </SidebarHeader>

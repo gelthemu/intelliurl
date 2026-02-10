@@ -29,9 +29,10 @@ export default function HeroResult({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      exit={{ opacity: 0, y: 15 }}
+      transition={{ duration: 0.75 }}
       className="bg-transparent rounded-sm !bg-sand shadow-xl p-4 md:p-6 lg:p-8"
     >
       <div className="space-y-4">

@@ -54,7 +54,7 @@ export default function PreviewCard({
 
   if (isLoadingPreview) {
     return (
-      <div className="flex items-center gap-2 text-sm text-light/50 py-2">
+      <div className="flex items-center gap-2 text-sm text-light/70 py-1">
         <Loader2 className="w-3.5 h-3.5 animate-spin" />
         Fetching preview…
       </div>

@@ -25,7 +25,7 @@ const Index = () => {
     setTimeout(() => {
       const event = new CustomEvent("intelliurl:fill", { detail: value });
       window.dispatchEvent(event);
-    }, 800);
+    }, 200);
   }, []);
 
   useShortcuts({

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Loader2, ArrowUp } from "lucide-react";
 import PreviewCard from "./preview-card";
 import { cn } from "@/lib/utils";
@@ -30,7 +31,13 @@ export default function HeroInput({
   onGenerate,
 }: HeroInputProps) {
   return (
-    <div className="space-y-4">
+    <motion.div
+      initial={{ opacity: 0, y: -15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.75 }}
+      className="space-y-4"
+    >
       <div className="space-y-0">
         <div className="relative">
           <textarea
@@ -95,6 +102,6 @@ export default function HeroInput({
       {isUrlInput && input.trim().length > 10 && (
         <PreviewCard url={input.trim()} onLoadingChange={setIsPreviewLoading} />
       )}
-    </div>
+    </motion.div>
   );
 }

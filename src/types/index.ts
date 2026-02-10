@@ -1,5 +1,5 @@
 export interface Task {
-  task?: string;
+  task: string;
   input: string;
   output: string;
   type: "url" | "slug";

@@ -3,14 +3,14 @@ import { FileJson, FileSpreadsheet } from "lucide-react";
 interface ExportMenuProps {
   show: boolean;
   onExportJSON: () => void;
-  onExportCSV: () => void;
+  onExportTXT: () => void;
   onClose: () => void;
 }
 
 export default function ExportMenu({
   show,
   onExportJSON,
-  onExportCSV,
+  onExportTXT,
   onClose,
 }: ExportMenuProps) {
   if (!show) return null;
@@ -22,20 +22,20 @@ export default function ExportMenu({
           onClose();
           onExportJSON();
         }}
-        className="flex items-center gap-2 w-full px-3 py-2 text-xs hover:bg-light/10 transition-colors"
+        className="flex items-center gap-2 w-full px-3 py-2 text-[13px] font-medium hover:bg-light/10 transition-colors"
       >
-        <FileJson className="w-3.5 h-3.5" />
+        <FileJson className="w-4 h-4" />
         JSON
       </button>
       <button
         onClick={() => {
           onClose();
-          onExportCSV();
+          onExportTXT();
         }}
-        className="flex items-center gap-2 w-full px-3 py-2 text-xs hover:bg-light/10 transition-colors"
+        className="flex items-center gap-2 w-full px-3 py-2 text-[13px] font-medium hover:bg-light/10 transition-colors"
       >
-        <FileSpreadsheet className="w-3.5 h-3.5" />
-        CSV
+        <FileSpreadsheet className="w-4 h-4" />
+        TXT
       </button>
     </div>
   );

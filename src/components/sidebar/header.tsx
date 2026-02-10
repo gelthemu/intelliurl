@@ -28,7 +28,7 @@ export default function SidebarHeader({
           <div className="relative">
             <button
               onClick={onToggleExport}
-              className="px-2 py-1.5 flex flex-row items-center gap-1.5 text-xs rounded-sm border border-light/20 bg-light/5 transition-colors intelliurl-btn"
+              className="px-2 py-1.5 flex flex-row items-center gap-1.5 text-xs font-medium rounded-sm border border-light/20 bg-light/5 transition-colors intelliurl-btn"
             >
               <Download className="w-4 h-4 stroke-[3px]" />
               Export

@@ -38,12 +38,38 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    const handler = (e: Event) => {
+    const handler = async (e: Event) => {
       const value = (e as CustomEvent).detail;
       if (typeof value === "string") {
+        const trimmed = value.trim();
+
+        setLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
+        const existing = await db.tasks.where("input").equals(trimmed).first();
+
+        if (existing) {
+          toast("Already generated...", { icon: "🔁" });
+          handleReset();
+          inputRef.current?.focus();
+
+          setTimeout(() => {
+            setResult({
+              original: existing.input,
+              output: existing.output,
+              type: existing.type,
+            });
+          }, 100);
+
+          return;
+        }
+
         handleReset();
-        setInput(value);
         inputRef.current?.focus();
+
+        setTimeout(() => {
+          setInput(value);
+        }, 200);
       }
     };
     window.addEventListener("intelliurl:fill", handler);
@@ -88,7 +114,7 @@ export default function Hero() {
       toast("Already generated...", { icon: "🔁" });
 
       setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       setLoading(false);
 
       setResult({ original: dup.input, output: dup.output, type: dup.type });
@@ -111,7 +137,7 @@ export default function Hero() {
         setResult({ original: trimmed, output: short, type: "url" });
 
         await db.tasks.add({
-          task: generateId(16),
+          task: generateId(10),
           input: trimmed,
           output: short,
           type: "url",
@@ -143,7 +169,7 @@ export default function Hero() {
         setResult({ original: trimmed, output: output, type: "slug" });
 
         await db.tasks.add({
-          task: generateId(16),
+          task: generateId(10),
           input: trimmed,
           output: output,
           type: "slug",
@@ -160,7 +186,7 @@ export default function Hero() {
       setError("Enter a valid URL or a valid Headline...");
       toast.error("Enter a valid URL or a valid Headline...");
     }
-  }, [input]);
+  }, [input, checkDuplicate]);
 
   const handleCopy = async () => {
     if (!result) return;
@@ -175,6 +201,7 @@ export default function Hero() {
     setInput("");
     setError("");
     setCopied(false);
+    setLoading(false);
     inputRef.current?.focus();
   };
 

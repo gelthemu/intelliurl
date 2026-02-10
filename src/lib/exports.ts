@@ -19,8 +19,8 @@ function downloadBlob(blob: Blob, filename: string) {
 }
 
 export function exportAsJSON(items: Task[]) {
-  const data = items.map(({ task, input, output, timestamp }) => ({
-    task,
+  const data = items.map(({ input, output, timestamp }, i) => ({
+    task: i + 1,
     input,
     output,
     date: `${new Date(timestamp).toLocaleString("en-US", {
@@ -37,22 +37,19 @@ export function exportAsJSON(items: Task[]) {
   downloadBlob(blob, `intelliurl-tasks-${generateId()}.json`);
 }
 
-export function exportAsCSV(items: Task[]) {
-  const header = "Task,Input,Output,Date";
-  const rows = items.map(({ task, input, output, timestamp }) => {
-    const escape = (s: string) => `"${s.replace(/"/g, '""')}"`;
-    return `${task},${escape(input)},${escape(output)},${`${new Date(
-      timestamp,
-    ).toLocaleString("en-US", {
+export function exportAsTXT(items: Task[]) {
+  const rows = items.map(({ input, output, timestamp }, i) => {
+    const date = `${new Date(timestamp).toLocaleString("en-US", {
       timeZone: "Africa/Kampala",
       month: "short",
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
-    })} EAT`}`;
+    })} EAT`;
+    return `${i === 0 ? "" : `${"=".repeat(20)}\n\n\n`}TASK: ${i + 1}\n\nINPUT: ${input}\n\nOUTPUT: ${output}\n\nDATE: ${date}${i === items.length - 1 ? "\n" : "\n\n\n"}`;
   });
-  const blob = new Blob([header + "\n" + rows.join("\n")], {
-    type: "text/csv",
+  const blob = new Blob([rows.join("")], {
+    type: "text/plain",
   });
-  downloadBlob(blob, `intelliurl-tasks-${generateId()}.csv`);
+  downloadBlob(blob, `intelliurl-tasks-${generateId()}.txt`);
 }
