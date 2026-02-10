@@ -88,7 +88,6 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  // Check for duplicates whenever input changes
   useEffect(() => {
     const checkIfDuplicate = async () => {
       const trimmed = input.trim();
@@ -101,7 +100,6 @@ export default function Hero() {
       setIsDuplicate(!!existing);
     };
 
-    // Debounce the duplicate check
     const debounceTimer = setTimeout(() => {
       checkIfDuplicate();
     }, 300);

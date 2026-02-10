@@ -86,7 +86,7 @@ function HistoryItem({ item, onClick }: HistoryItemProps) {
       <div className="flex flex-row items-center gap-1">
         <p className="flex-1 text-base truncate">
           OUTPUT:{" "}
-          <span className="text-sm font-mono font-bold">{item.output}</span>
+          <span className="text-[15px] font-mono font-bold">{item.output}</span>
         </p>
         {item.type === "url" ? (
           <ExternalLink className="w-3.5 h-3.5 opacity-60 shrink-0" />
