@@ -65,7 +65,6 @@ export default function Hero() {
         }
 
         setLoading(false);
-        handleReset();
         setInput(value);
       }
     };
