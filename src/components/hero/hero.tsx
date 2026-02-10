@@ -201,9 +201,6 @@ export default function Hero() {
     setCopied(false);
     setLoading(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 250);
   };
 
   const isUrlInput = isValidURL(input.trim());
