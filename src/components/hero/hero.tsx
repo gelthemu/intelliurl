@@ -51,7 +51,6 @@ export default function Hero() {
         if (existing) {
           toast("Already generated...", { icon: "🔁" });
           handleReset();
-          inputRef.current?.focus();
 
           setTimeout(() => {
             setResult({
