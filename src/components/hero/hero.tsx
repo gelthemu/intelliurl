@@ -131,7 +131,7 @@ export default function Hero() {
         const slug = slugify(trimmed, {
           lower: true,
           strict: true,
-          remove: /[*+~.()'"!:@|]/g,
+          remove: /[*+~.()\|'"!:@]/g,
         });
 
         await new Promise((resolve) => setTimeout(resolve, 2500));
