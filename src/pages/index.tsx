@@ -61,7 +61,7 @@ const Index = () => {
       />
       <footer className="container bg-dark/10 mx-auto px-2 py-12">
         <div className="max-w-4xl mx-auto text-left">
-          <p className="text-sm opacity-75">{`© ${new Date().getFullYear()} intelliURL`}</p>
+          <p className="text-sm opacity-75">{`© ${new Date().getFullYear()} intelliURL v.${import.meta.env.VITE_SITE_VERSION} (i)`}</p>
         </div>
       </footer>
       <Sidebar
