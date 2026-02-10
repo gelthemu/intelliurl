@@ -66,10 +66,7 @@ export default function Hero() {
 
         setLoading(false);
         handleReset();
-
-        setTimeout(() => {
-          setInput(value);
-        }, 200);
+        setInput(value);
       }
     };
     window.addEventListener("intelliurl:fill", handler);
