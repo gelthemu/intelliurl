@@ -64,6 +64,7 @@ export default function Hero() {
           return;
         }
 
+        setLoading(false);
         handleReset();
 
         setTimeout(() => {
