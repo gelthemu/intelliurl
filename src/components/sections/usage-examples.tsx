@@ -15,20 +15,19 @@ export default function UsageExamples({ onTryExample }: UsageExamplesProps) {
           {
             category: "Blog",
             input:
-              "https://blog.example.com/2024/03/15/the-complete-guide-to-modern-web-development-with-react",
+              "https://geltaverse.substack.com/p/january-in-uganda-and-other-distractions",
           },
           {
             category: "Social Media",
-            input: "Why Remote Work Is Here to Stay — A Complete Guide",
+            input: "Epstein's Harem | Part 1: The Rachel Chandler Conspiracy",
           },
           {
             category: "E-commerce",
-            input:
-              "https://shop.example.com/products/summer-collection/item?id=12345&ref=campaign&utm_source=newsletter",
+            input: "https://www.lcusale.shop/?path=page/ggitem&ggpid=149208",
           },
           {
             category: "Email Marketing",
-            input: "The Ultimate Black Friday Deals You Can't Miss This Year",
+            input: "New Year and new deals at Porkbun! Details inside.",
           },
         ].map((ex, i) => (
           <div

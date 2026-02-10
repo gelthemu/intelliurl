@@ -24,14 +24,14 @@ export default function WhatIs() {
                 "Why I'm Deleting My Facebook, Instagram, and WhatsApp Accounts",
               output:
                 "why-im-deleting-my-facebook-instagram-and-whatsapp-accounts",
-              type: "url",
+              type: "slug",
             },
             {
               task: "iqdv7xx6knrra5gwi",
               input:
                 "https://geltaverse.vercel.app/bookmarks/why-deleting-facebook-instagram-whatsapp-privacy-echo-chambers",
               output: "https://tinyurl.com/3k7empvu",
-              type: "slug",
+              type: "url",
             },
           ].map((task) => (
             <table

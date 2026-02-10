@@ -85,7 +85,7 @@ export default function PreviewCard({
             </p>
           )}
           {preview.excerpt && (
-            <p className="text-sm text-light/50 line-clamp-2 mt-auto">
+            <p className="text-sm text-light/50 line-clamp-2 text-ellipsis mt-auto">
               {preview.excerpt}
             </p>
           )}
