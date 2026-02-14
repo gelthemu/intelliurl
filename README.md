@@ -2,7 +2,7 @@
 
 \-
 
-**intelliURL:**: lightweight tool that does two things well:
+**intelliURL:** a lightweight web tool that does two things well:
 
 1. Shorten long URLs via TinyURL into clean, shareable links;
 2. Transform article headlines into SEO-friendly slugs;
