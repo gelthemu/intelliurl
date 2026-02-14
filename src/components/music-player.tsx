@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { IoHeadset } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
@@ -19,6 +19,14 @@ export default function MusicPlayer({
   const closeOverlay = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -43,7 +51,7 @@ export default function MusicPlayer({
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={closeOverlay}
-              className="music-backdrop fixed inset-0 bg-dark/50 z-[997] backdrop-blur-sm"
+              className="music-backdrop fixed inset-0 bg-dark/80 z-[997] backdrop-blur-sm"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -60,7 +68,7 @@ export default function MusicPlayer({
               <div className="relative w-full max-w-3xl aspect-video bg-dark rounded-sm overflow-hidden shadow-2xl">
                 <button
                   onClick={closeOverlay}
-                  className="absolute top-2 right-2 z-10 bg-dark/60 hover:bg-dark/70 text-light rounded-sm p-1 transition-colors duration-200 focus:outline-none focus:ring-0"
+                  className="absolute top-2 right-2 z-10 bg-dark/60 hover:bg-red-600 text-light rounded-sm p-1 transition-colors duration-200 intelliurl-btn"
                   aria-label="Close music player"
                 >
                   <X size={18} className="text-light" />

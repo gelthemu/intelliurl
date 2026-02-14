@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { Copy, Check, RotateCcw, Twitter } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Copy, Twitter, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ResultType } from "./hero";
 
@@ -28,73 +28,86 @@ export default function HeroResult({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 15 }}
-      transition={{ duration: 0.75 }}
-      className="bg-transparent rounded-sm !bg-sand shadow-xl p-4 md:p-6 lg:p-8"
-    >
-      <div className="space-y-4">
-        <div>
-          <span className="font-medium mb-1 block">
-            {result.type === "url" ? "URL Shortened" : "Slug Generated"}:
-          </span>
-        </div>
-
-        <ResultField label="Original" value={result.original} />
-        <ResultField label="Result" value={result.output} isResult />
-
-        <div className="flex items-center gap-2 text-sm">
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={onCopy}
-            className={cn(
-              "px-4 py-2 rounded-sm font-medium flex-1 flex items-center justify-center gap-2",
-              "text-light transition-colors duration-200 intelliurl-btn",
-              copied
-                ? "bg-green-600 border-2 border-green-600"
-                : "bg-dark hover:bg-dark/95 border-2 border-dark",
-            )}
-            title={copied ? "Copied" : "Copy"}
+    <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        onClick={onReset}
+        className="result-backdrop fixed inset-0 bg-dark/80 z-[997] backdrop-blur-sm"
+      />
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.4 }}
+          className="fixed inset-0 z-[998] flex items-center justify-center p-4"
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            onReset();
+          }}
+        >
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            }}
+            className="relative w-full max-w-3xl rounded-sm !bg-sand border-4 border-x-dark border-y-cyan-800 shadow-xl p-4 md:p-6 lg:p-8 overflow-hidden"
           >
-            {copied ? (
-              <Check className="w-4 h-4 stroke-[3px]" />
-            ) : (
-              <Copy className="w-4 h-4 stroke-[3px]" />
-            )}
-            {copied ? "Copied!" : "Copy"}
-          </motion.button>
+            <button
+              onClick={onReset}
+              className="absolute top-4 md:top-6 lg:top-8 right-4 md:right-6 lg:right-8 z-10 bg-dark/80 hover:bg-red-600 text-light rounded-sm p-1 transition-colors duration-200 intelliurl-btn"
+              aria-label="Reset"
+            >
+              <X size={16} className="text-light stroke-[3px]" />
+            </button>
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={onReset}
-            className={cn(
-              "px-4 py-2 rounded-sm font-medium shrink-0 flex items-center justify-center gap-2",
-              "border-2 border-dark bg-transparent hover:bg-teal/5 transition-colors duration-200 intelliurl-btn",
-            )}
-            title="Reset"
-          >
-            <RotateCcw className="w-4 h-4 stroke-[3px]" />
-            Reset
-          </motion.button>
+            <div className="space-y-4">
+              <div className="inline-flex px-2 py-0.5 rounded-sm bg-dark text-light">
+                <span className="font-medium">
+                  {result.type === "url" ? "URL Shortened" : "Slug Generated"}:
+                </span>
+              </div>
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={handleShareTwitter}
-            className={cn(
-              "px-4 py-2 rounded-sm font-medium shrink-0 flex items-center justify-center gap-2",
-              "border-2 border-dark bg-transparent hover:bg-teal/5 transition-colors duration-200 intelliurl-btn",
-            )}
-          >
-            <Twitter className="w-4 h-4 stroke-[3px]" />
-            Tweet
-          </motion.button>
-        </div>
-      </div>
-    </motion.div>
+              <ResultField label="Original" value={result.original} />
+              <ResultField label="Result" value={result.output} isResult />
+
+              <div className="flex items-center gap-2 text-sm">
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={onCopy}
+                  className={cn(
+                    "px-4 py-2 rounded-sm font-medium flex-1 flex items-center justify-center gap-2",
+                    "text-light transition-colors duration-200 intelliurl-btn",
+                    copied
+                      ? "bg-green-600 border-2 border-green-600"
+                      : "bg-dark hover:bg-dark/95 border-2 border-dark",
+                  )}
+                  title={copied ? "Copied" : "Copy"}
+                >
+                  {!copied && <Copy className="w-4 h-4 stroke-[3px]" />}
+                  {copied ? "Copied!" : "Copy"}
+                </motion.button>
+                <motion.button
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleShareTwitter}
+                  className={cn(
+                    "px-4 py-2 rounded-sm font-medium shrink-0 flex items-center justify-center gap-2",
+                    "border-2 border-dark bg-transparent hover:bg-teal/5 transition-colors duration-200 intelliurl-btn",
+                  )}
+                >
+                  <Twitter className="w-4 h-4 stroke-[3px]" />
+                  Tweet
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </>
   );
 }
 

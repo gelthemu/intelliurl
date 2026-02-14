@@ -32,6 +32,14 @@ export default function Hero() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
+    if (result) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [result]);
+
+  useEffect(() => {
     (window as any).__intelliurl_focus_input = () => inputRef.current?.focus();
     return () => {
       delete (window as any).__intelliurl_focus_input;
@@ -222,7 +230,7 @@ export default function Hero() {
 
   return (
     <section className="hero w-full bg-dark/95">
-      <div className="max-w-4xl mx-auto px-4 py-10 md:py-12 flex flex-col space-y-8">
+      <div className="max-w-4xl mx-auto px-4 py-10 md:py-12 flex flex-col space-y-0">
         <HeroHeader
           tagline={TAGLINES[taglineIndex]}
           taglineVisible={taglineVisible}

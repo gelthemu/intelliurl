@@ -16,30 +16,28 @@ export default function PreviewCard({
   const [isLoadingPreview, setIsLoadingPreview] = useState(false);
 
   useEffect(() => {
-    let cancelled = false;
     setIsLoadingPreview(true);
     onLoadingChange?.(true);
 
     const fetchMeta = async () => {
-      if (cancelled) return;
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
       try {
         const res = await fetchLinkPreview(url);
 
-        if (!res) return;
-
-        if (!cancelled && res) {
+        if (res) {
           setPreview(res);
+          setIsLoadingPreview(false);
+          onLoadingChange?.(false);
+          return;
+        } else {
+          setPreview(null);
           setIsLoadingPreview(false);
           onLoadingChange?.(false);
           return;
         }
       } catch {
-        // fail silently and return null
         setPreview(null);
-      }
-
-      if (!cancelled) {
         setIsLoadingPreview(false);
         onLoadingChange?.(false);
       }
@@ -47,7 +45,6 @@ export default function PreviewCard({
 
     const debounce = setTimeout(fetchMeta, 600);
     return () => {
-      cancelled = true;
       clearTimeout(debounce);
     };
   }, [url, onLoadingChange]);

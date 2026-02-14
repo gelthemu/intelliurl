@@ -39,7 +39,7 @@ export default function SidebarHeader({
         <div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-sm border border-light/20 bg-light/20 hover:bg-light/10 transition-colors intelliurl-btn"
+            className="p-1.5 rounded-sm border border-light/20 bg-light/20 hover:bg-red-600 transition-colors intelliurl-btn"
             aria-label="Close tasks"
           >
             <X className="w-4 h-4 stroke-[3px]" />

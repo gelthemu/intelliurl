@@ -95,7 +95,8 @@
 body,
 .hero,
 .music-backdrop,
-.history-backdrop {
+.history-backdrop,
+.result-backdrop {
   background-image: url(/texture.png);
   background-repeat: repeat;
   background-position: top left;

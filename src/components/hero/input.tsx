@@ -53,6 +53,24 @@ export default function HeroInput({
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();
                 onGenerate();
+                return;
+              }
+
+              const isPaste =
+                (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "v";
+              const isCut =
+                (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "x";
+              const isCopy =
+                (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "c";
+
+              const isNavigationKey =
+                e.key === "Tab" ||
+                e.key === "Backspace" ||
+                e.key === "Delete" ||
+                e.key.startsWith("Arrow");
+
+              if (!isPaste && !isCut && !isCopy && !isNavigationKey) {
+                e.preventDefault();
               }
             }}
             rows={3}
@@ -60,7 +78,7 @@ export default function HeroInput({
             placeholder="Paste a webpage title or URL here…"
             className={cn(
               "w-full p-4 md:p-6 text-base font-semibold transition-all duration-300",
-              "rounded-sm border-2 border-dark !bg-sand text-dark",
+              "rounded-sm border-4 border-x-dark border-y-cyan-800 !bg-sand text-dark",
               "placeholder:text-dark/70 placeholder:font-normal resize-none intelliurl-btn scrollbar-hide",
               input.trim().length > 0 ? "shadow-lg" : "shadow-md",
             )}
@@ -86,13 +104,20 @@ export default function HeroInput({
         </div>
         <div className="flex flex-row items-center justify-between space-x-2">
           <div>
-            {error ? (
-              <p className="text-sm text-red-500 font-medium animate-fade-in">
-                {error}
-              </p>
-            ) : (
-              <span />
-            )}
+            <p
+              className={cn(
+                "text-sm",
+                error ? "font-medium text-red-500" : "text-light/50",
+              )}
+            >
+              {error ? (
+                <span>error</span>
+              ) : !input.trim() ? (
+                <span>
+                  You can only <span className="font-medium">"PASTE"</span> . . .
+                </span>
+              ) : null}
+            </p>
           </div>
           <div>
             <span className="text-[12px] tabular-nums text-sand/80">
