@@ -43,6 +43,7 @@ export default function HeroInput({
       <div className="space-y-0">
         <div className="relative">
           <textarea
+            id="text"
             ref={inputRef}
             value={input}
             onChange={(e) => {
@@ -114,7 +115,8 @@ export default function HeroInput({
                 <span>error</span>
               ) : !input.trim() ? (
                 <span>
-                  You can only <span className="font-medium">"PASTE"</span> . . .
+                  You can only <span className="font-medium">"PASTE"</span> . .
+                  .
                 </span>
               ) : null}
             </p>
