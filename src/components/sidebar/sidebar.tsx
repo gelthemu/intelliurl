@@ -59,7 +59,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed top-0 right-0 h-full w-[95%] max-w-[420px] bg-light drop-shadow-lg z-[999] flex flex-col"
+            className="fixed top-0 right-0 h-full w-[95%] max-w-[420px] bg-light drop-shadow-lg z-[999] flex flex-col select-none"
           >
             <SidebarHeader
               onClose={handleClose}

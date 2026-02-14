@@ -71,7 +71,7 @@ export default function FAQS() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
-                  <div className="text-[15px] px-6 pt-0 pb-4 text-dark/80 leading-relaxed">
+                  <div className="text-[15px] px-6 pt-0 pb-4 text-dark/80 leading-relaxed select-none">
                     {faq.a}
                   </div>
                 </motion.div>

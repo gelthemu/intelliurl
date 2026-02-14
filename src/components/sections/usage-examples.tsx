@@ -32,7 +32,7 @@ export default function UsageExamples({ onTryExample }: UsageExamplesProps) {
         ].map((ex, i) => (
           <div
             key={i}
-            className="w-full text-left p-4 rounded-sm border border-dark/20 bg-transparent space-y-2"
+            className="w-full text-left p-4 rounded-sm border border-dark/20 bg-transparent space-y-2 select-none"
           >
             <div className="flex flex-row items-center justify-between space-x-2">
               <div className="flex-1">

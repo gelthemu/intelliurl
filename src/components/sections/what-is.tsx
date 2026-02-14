@@ -36,7 +36,7 @@ export default function WhatIs() {
           ].map((task) => (
             <table
               key={task.task}
-              className="w-full border-separate text-left p-4 rounded-sm border border-dark/20 bg-sand/10"
+              className="w-full border-separate text-left p-4 rounded-sm border border-dark/20 bg-sand/10 select-none"
             >
               <tbody>
                 <tr className="bg-transparent">

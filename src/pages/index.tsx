@@ -1,6 +1,4 @@
 import { useState, useCallback } from "react";
-import { CgSidebar } from "react-icons/cg";
-import { SiGooglecloudstorage } from "react-icons/si";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { useShortcuts } from "@/lib/useShortcuts";
 import Hero from "@/components/hero/hero";
