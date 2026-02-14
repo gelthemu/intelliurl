@@ -1,4 +1,5 @@
 import { Play } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface UsageExamplesProps {
   onTryExample?: (value: string) => void;
@@ -16,18 +17,22 @@ export default function UsageExamples({ onTryExample }: UsageExamplesProps) {
             category: "Blog",
             input:
               "https://geltaverse.substack.com/p/january-in-uganda-and-other-distractions",
+            type: "url",
           },
           {
             category: "Social Media",
             input: "Epstein's Harem | Part 1: The Rachel Chandler Conspiracy",
+            type: "slug",
           },
           {
             category: "E-commerce",
             input: "https://www.lcusale.shop/?path=page/ggitem&ggpid=149208",
+            type: "url",
           },
           {
             category: "Email Marketing",
             input: "New Year and new deals at Porkbun! Details inside.",
+            type: "slug",
           },
         ].map((ex, i) => (
           <div
@@ -35,7 +40,15 @@ export default function UsageExamples({ onTryExample }: UsageExamplesProps) {
             className="w-full text-left p-4 rounded-sm border border-dark/20 bg-transparent space-y-2 select-none"
           >
             <div className="flex flex-row items-center justify-between space-x-2">
-              <div className="flex-1">
+              <div className="flex-1 flex flex-row items-center space-x-1.5">
+                <span
+                  className={cn(
+                    "inline-flex px-1.5 py-0.5 rounded-sm text-dark text-[12px] font-medium uppercase tracking-wide",
+                    ex.type === "url" ? "bg-teal" : "bg-sand",
+                  )}
+                >
+                  {ex.type === "url" ? "URL" : "Slug"}
+                </span>
                 <span className="text-sm font-medium uppercase tracking-wider text-dark/60">
                   {ex.category}
                 </span>
