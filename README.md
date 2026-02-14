@@ -1,6 +1,6 @@
-<div style="display: flex; align-items: center; gap: 8px; width: 100%">
+<div style="display: flex; align-items: center; gap: 8px; width: 100%;">
 <img src="https://intelliurl.vercel.app/favicon.ico" alt="intelliURL" width="30" height="30" />
-<span style="font-size: 25px; font-weight: 800 ">intelli<span style="color: rgb(233 196 106)">URL</span></span>
+<span style="font-size: 25px; font-weight: 800;">intelli<span style="color: rgb(233 196 106);">URL</span></span>
 </div>
 
 \-
