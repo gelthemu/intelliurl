@@ -44,12 +44,13 @@ export default function Hero() {
       if (typeof value === "string") {
         const trimmed = value.trim();
 
-        setLoading(true);
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        
 
         const existing = await db.tasks.where("input").equals(trimmed).first();
 
         if (existing) {
+          setLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 1500));
           toast("Already generated...", { icon: "📋" });
 
             setResult({
