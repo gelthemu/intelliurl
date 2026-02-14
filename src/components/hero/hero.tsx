@@ -51,26 +51,19 @@ export default function Hero() {
 
         if (existing) {
           toast("Already generated...", { icon: "📋" });
-          handleReset();
-          inputRef.current?.focus();
 
-          setTimeout(() => {
             setResult({
               original: existing.input,
               output: existing.output,
               type: existing.type,
             });
-          }, 100);
-
+setLoading(false);
           return;
         }
 
-        handleReset();
-        inputRef.current?.focus();
-
         setTimeout(() => {
           setInput(value);
-        }, 200);
+        }, 100);
       }
     };
     window.addEventListener("intelliurl:fill", handler);
@@ -224,9 +217,6 @@ export default function Hero() {
     setLoading(false);
     setIsDuplicate(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 250);
   };
 
   const isUrlInput = isValidURL(input.trim());
