@@ -1,11 +1,8 @@
-<div style="display: flex; align-items: center; gap: 8px; width: 100%">
 <img src="https://intelliurl.vercel.app/favicon.ico" alt="intelliURL" width="30" height="30" />
-<span style="font-size: 25px; font-weight: 800 ">intelli<span style="color: rgb(233 196 106)">URL</span></span>
-</div>
 
 \-
 
-A lightweight tool that does two things well:
+**intelliURL:** a lightweight web tool that does two things well:
 
 1. Shorten long URLs via TinyURL into clean, shareable links;
 2. Transform article headlines into SEO-friendly slugs;
