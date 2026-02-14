@@ -59,7 +59,7 @@ export default function HeroResult({
           >
             <button
               onClick={onReset}
-              className="absolute top-4 md:top-6 lg:top-8 right-4 md:right-6 lg:right-8 z-10 bg-dark/80 hover:bg-red-600 text-light rounded-sm p-1 transition-colors duration-200 intelliurl-btn"
+              className="absolute top-4 md:top-6 lg:top-8 right-4 md:right-6 lg:right-8 z-10 bg-red-600 hover:bg-red-600/80 text-light rounded-sm p-1 transition-colors duration-200 intelliurl-btn"
               aria-label="Reset"
             >
               <X size={16} className="text-light stroke-[3px]" />

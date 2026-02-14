@@ -68,7 +68,7 @@ export default function MusicPlayer({
               <div className="relative w-full max-w-3xl aspect-video bg-dark rounded-sm overflow-hidden shadow-2xl">
                 <button
                   onClick={closeOverlay}
-                  className="absolute top-2 right-2 z-10 bg-dark/60 hover:bg-red-600 text-light rounded-sm p-1 transition-colors duration-200 intelliurl-btn"
+                  className="absolute top-2 right-2 z-10 bg-red-600 hover:bg-red-600/80 text-light rounded-sm p-1 transition-colors duration-200 intelliurl-btn"
                   aria-label="Close music player"
                 >
                   <X size={18} className="text-light" />
